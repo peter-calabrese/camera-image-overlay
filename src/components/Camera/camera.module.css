@@ -5,18 +5,21 @@
     background-color: #000;
     border-radius: 12px;
     position: relative;
-    /* overflow: hidden; */
+    overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
 }
 
 .viewfinder img {
     position: absolute;
-    height: inherit;
-    width: inherit;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
     opacity: 50%;
     top: 0;
     left: 0;
+    right: 0;
     z-index: 10
 }
 
