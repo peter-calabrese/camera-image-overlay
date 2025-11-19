@@ -1,0 +1,27 @@
+.viewfinder {
+    height: calc(100vh - 100px);
+    /* margin: 32px; */
+    aspect-ratio: 3/4;
+    background-color: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.container button {
+    height: 50px;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
