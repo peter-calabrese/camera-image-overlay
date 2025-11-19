@@ -20,7 +20,7 @@ interface UseCamera {
 }
 export const UseCamera = (): UseCamera => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [cameraFacing, setCameraFacing] = useState<CameraFacing>("enviornment");
+  const [cameraFacing, _] = useState<CameraFacing>("enviornment");
   const [stream, setStream] = useState<MediaStream | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isActive, setIsActive] = useState<boolean>(false);
