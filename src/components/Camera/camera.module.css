@@ -4,9 +4,20 @@
     aspect-ratio: 3/4;
     background-color: #000;
     border-radius: 12px;
-    overflow: hidden;
+    position: relative;
+    /* overflow: hidden; */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
+}
+
+.viewfinder img {
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    opacity: 50%;
+    top: 0;
+    left: 0;
+    z-index: 10
 }
 
 .container {
