@@ -1,15 +1,7 @@
 import { UseCamera } from "../../hooks/useCamera";
 import styles from "./camera.module.css";
 function Camera() {
-  const {
-    error,
-    isActive,
-    permissionStatus,
-    startCamera,
-    stopCamera,
-    stream,
-    videoRef,
-  } = UseCamera();
+  const { error, isActive, startCamera, stopCamera, videoRef } = UseCamera();
 
   return (
     <div className={styles.container}>
@@ -20,8 +12,20 @@ function Camera() {
           playsInline // Crucial for iOS
           muted
         />
+        {error && <div className="error-msg">{error}</div>}
       </div>
-      <button onClick={startCamera}>Start Camera</button>
+
+      {!isActive ? (
+        <button className="btn-start" onClick={startCamera}>
+          Start Camera
+        </button>
+      ) : (
+        <>
+          <button className="btn-stop" onClick={stopCamera}>
+            Stop
+          </button>
+        </>
+      )}
     </div>
   );
 }
