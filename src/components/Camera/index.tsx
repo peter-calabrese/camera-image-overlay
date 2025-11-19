@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { UseCamera } from "../../hooks/useCamera";
 import styles from "./camera.module.css";
 function Camera() {
   const { error, isActive, startCamera, stopCamera, videoRef } = UseCamera();
   const [image, setImage] = useState("");
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
@@ -18,10 +19,13 @@ function Camera() {
   return (
     <div className={styles.container}>
       <input
+        ref={inputRef}
         type="file"
         title="Upload Image"
         onChange={(e) => handleFileChange(e)}
+        style={{ display: "none" }}
       />
+      <button onClick={() => inputRef.current!.click()}>Upload Image</button>
       <div className={styles.viewfinder}>
         <video
           ref={videoRef}
